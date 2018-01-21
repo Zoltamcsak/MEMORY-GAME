@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CardModel} from './card/card-item/card.model';
 
 @Component({
-  selector: 'app-root',
+  selector: 'mg-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public card = new CardModel();
+  constructor() {
+    this.card.number = 4;
+  }
 }
