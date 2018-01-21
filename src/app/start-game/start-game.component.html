@@ -1,12 +1,16 @@
-<span>Select the number of cards: </span>
-<form>
-  <mat-form-field>
-    <mat-select placeholder="Nr. of cards" [(ngModel)]='nrOfCards' name='nrOfCards'>
-      <mat-option *ngFor="let nr of nrCardsOptions" [value]="nr">
-        {{ nr }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
+<div *ngIf='!nrOfCards'>
+  <span>Select the number of cards: </span>
+  <form>
+    <mat-form-field>
+      <mat-select placeholder="Nr. of cards" [(ngModel)]='nrOfCards' name='nrOfCards'>
+        <mat-option *ngFor="let nr of nrCardsOptions" [value]="nr">
+          {{ nr }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
 
-<mg-board *ngIf='nrOfCards' [nrOfCards]='nrOfCards'></mg-board>
+<mg-board *ngIf='nrOfCards' [nrOfCards]='nrOfCards'
+          (onNewGameClicked)='nrOfCards = undefined'
+></mg-board>

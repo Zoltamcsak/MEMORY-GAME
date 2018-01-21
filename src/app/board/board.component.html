@@ -1,3 +1,6 @@
+<button mat-button (click)='ngOnInit()'>Restart</button>
+<button mat-button (click)='onNewGameClicked.emit()'>New Game</button>
+
 <mg-card *ngFor='let card of deckOfCards' [card]='card'
          (click)='!cardsDisabled && onCardClicked(card)'
 >

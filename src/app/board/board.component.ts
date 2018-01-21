@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CardModel} from '../card/card-item/card.model';
 import {BoardService} from './board.service';
 
@@ -9,11 +9,12 @@ import {BoardService} from './board.service';
 })
 export class BoardComponent implements OnInit {
   @Input() nrOfCards: number;
-  public board: CardModel[][];
+  @Output() onNewGameClicked: EventEmitter<void> = new EventEmitter();
+
   public deckOfCards: CardModel[];
   public firstCard: CardModel;
   public matchCard: CardModel;
-  public cardsDisabled = false
+  public cardsDisabled = false;
 
   constructor(private boardService: BoardService) {
 
@@ -31,7 +32,7 @@ export class BoardComponent implements OnInit {
     } else {
       this.matchCard = card;
       this.cardsDisabled = true;
-      setTimeout(() => this.isMatch(), 2500);
+      setTimeout(() => this.isMatch(), 1500);
     }
   }
 
