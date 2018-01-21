@@ -2,9 +2,9 @@
 <button mat-button (click)='onNewGameClicked.emit()'>New Game</button>
 <span>Number of tries: {{nrOfTries}}</span>
 
-<mg-card *ngFor='let card of deckOfCards' [card]='card' [@flyInOut]=''
+<mg-card *ngFor='let card of deckOfCards' [card]='card'
          (click)='!cardsDisabled && !card.status && onCardClicked(card)'
 >
 
 </mg-card>
-<span *ngIf='winning'>Yay you won! Congratulations</span>
+<span *ngIf='winning'>Yay you won! Congratulations All time score: {{allTimeScore}}</span>

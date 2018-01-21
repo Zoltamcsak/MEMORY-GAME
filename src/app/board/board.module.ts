@@ -9,7 +9,7 @@ import {MatButtonModule} from '@angular/material';
   imports: [
     CardModule,
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   declarations: [
     BoardComponent

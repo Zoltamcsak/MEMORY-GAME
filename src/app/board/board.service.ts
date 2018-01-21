@@ -33,4 +33,11 @@ export class BoardService {
     });
     return win;
   }
+
+  addAllTimeScore(nrOfTries: number): number {
+    if (!localStorage.getItem('allTimeScore') || parseInt(localStorage.getItem('allTimeScore'), 10) > nrOfTries) {
+      localStorage.setItem('allTimeScore', JSON.stringify(nrOfTries));
+    }
+    return parseInt(localStorage.getItem('allTimeScore'), 10);
+  }
 }

@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   public cardsDisabled = false;
   public nrOfTries: number;
   public winning: boolean;
-  public flyInOut: boolean;
+  public allTimeScore: number;
 
   constructor(private boardService: BoardService) {
 
@@ -27,7 +27,6 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.nrOfTries = 0;
     this.winning = false;
-    this.flyInOut = true;
     this.deckOfCards = this.boardService.generateDeckOfCards(this.nrOfCards);
     this.deckOfCards = this.boardService.shuffleArray(this.deckOfCards);
   }
@@ -53,6 +52,9 @@ export class BoardComponent implements OnInit {
     this.cardsDisabled = false;
     this.nrOfTries++;
     this.winning = this.boardService.didUserWin(this.deckOfCards);
+    if (this.winning) {
+      this.allTimeScore = this.boardService.addAllTimeScore(this.nrOfTries);
+    }
   }
 
   initSelectedCards(): void {
