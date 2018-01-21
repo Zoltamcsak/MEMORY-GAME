@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CardModel} from '../card/card-item/card.model';
 import {BoardService} from './board.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'mg-board',
@@ -15,12 +16,18 @@ export class BoardComponent implements OnInit {
   public firstCard: CardModel;
   public matchCard: CardModel;
   public cardsDisabled = false;
+  public nrOfTries: number;
+  public winning: boolean;
+  public flyInOut: boolean;
 
   constructor(private boardService: BoardService) {
 
   }
 
   ngOnInit() {
+    this.nrOfTries = 0;
+    this.winning = false;
+    this.flyInOut = true;
     this.deckOfCards = this.boardService.generateDeckOfCards(this.nrOfCards);
     this.deckOfCards = this.boardService.shuffleArray(this.deckOfCards);
   }
@@ -42,9 +49,15 @@ export class BoardComponent implements OnInit {
       this.firstCard.status = false;
       this.matchCard.status = false;
     }
+    this.initSelectedCards();
+    this.cardsDisabled = false;
+    this.nrOfTries++;
+    this.winning = this.boardService.didUserWin(this.deckOfCards);
+  }
+
+  initSelectedCards(): void {
     this.firstCard = null;
     this.matchCard = null;
-    this.cardsDisabled = false;
   }
 
 }

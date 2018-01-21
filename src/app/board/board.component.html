@@ -1,8 +1,10 @@
 <button mat-button (click)='ngOnInit()'>Restart</button>
 <button mat-button (click)='onNewGameClicked.emit()'>New Game</button>
+<span>Number of tries: {{nrOfTries}}</span>
 
-<mg-card *ngFor='let card of deckOfCards' [card]='card'
-         (click)='!cardsDisabled && onCardClicked(card)'
+<mg-card *ngFor='let card of deckOfCards' [card]='card' [@flyInOut]=''
+         (click)='!cardsDisabled && !card.status && onCardClicked(card)'
 >
 
 </mg-card>
+<span *ngIf='winning'>Yay you won! Congratulations</span>

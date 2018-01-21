@@ -23,4 +23,14 @@ export class BoardService {
     }
     return deckOfCards;
   }
+
+  didUserWin(deckOfCards: CardModel[]): boolean {
+    let win = true;
+    deckOfCards.forEach((card: CardModel) => {
+      if (!card.status) {
+        win = false;
+      }
+    });
+    return win;
+  }
 }
