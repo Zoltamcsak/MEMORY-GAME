@@ -3,8 +3,10 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {CardModule} from './card/card-item/card.module';
-import {MatCardModule} from '@angular/material';
+import {CardModule} from './card/card.module';
+import {MatCardModule, MatSelectModule} from '@angular/material';
+import {StartGameModule} from './start-game/start-game.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,7 +16,10 @@ import {MatCardModule} from '@angular/material';
   imports: [
     BrowserModule,
     CardModule,
-    MatCardModule
+    MatCardModule,
+    StartGameModule,
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
