@@ -4,6 +4,7 @@ import {MatButtonModule,  MatSelectModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import {BoardModule} from '../board/board.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {FormsModule} from '@angular/forms';
     MatSelectModule,
     CommonModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    BoardModule
   ],
   declarations: [
     StartGameComponent

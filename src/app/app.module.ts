@@ -7,6 +7,8 @@ import {CardModule} from './card/card.module';
 import {MatCardModule, MatSelectModule} from '@angular/material';
 import {StartGameModule} from './start-game/start-game.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BoardComponent } from './board/board.component';
+import {BoardModule} from './board/board.module';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatCardModule,
     StartGameModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BoardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

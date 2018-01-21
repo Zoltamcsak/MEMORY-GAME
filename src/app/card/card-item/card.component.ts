@@ -12,7 +12,7 @@ export class CardComponent {
   constructor() { }
 
   onCardClicked(): void {
-    this.card.status = !this.card.status;
+    // this.card.status = !this.card.status;
   }
 
 }

@@ -15,7 +15,8 @@ import {CardListComponent} from './card-list/card-list.component';
     CardListComponent
   ],
   exports: [
-    CardComponent
+    CardComponent,
+    CardListComponent
   ]
 })
 export class CardModule {}

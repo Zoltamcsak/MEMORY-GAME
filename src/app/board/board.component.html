@@ -1,0 +1,5 @@
+<mg-card *ngFor='let card of deckOfCards' [card]='card'
+         (click)='!cardsDisabled && onCardClicked(card)'
+>
+
+</mg-card>
